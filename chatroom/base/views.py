@@ -208,3 +208,6 @@ def activityPage(request):
 
 def cancel(request):
     return render(request, "base/cancel.html")
+
+def index(request):
+    return render(request, "base/index.html")
