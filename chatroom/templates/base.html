@@ -39,35 +39,67 @@
   ======================================================== -->
 </head>
 <body>
-
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
-      <div class="container d-flex align-items-center justify-content-between">
   
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top ">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    
+
+<a href="/" class="logo"><img src="{% static 'image/logo4.png' %}" alt="" class="img-fluid"> STUDY ROOM</a>
+
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="/home">Home</a></li>
+      
+        <!--<li><a class="nav-link scrollto" href="/about">About</a></li>
+        <li><a class="nav-link scrollto" href="/checkout">Checkout</a></li>
+        <li><a class="nav-link scrollto" href="/profile">My Profile<i class="fa-regular fa-square-user"></i> </a></li>
+
+        <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
+        </button>-->
+
+
+
+
+
+
+        {% if request.user.is_authenticated %}
+        <li><a  class="nav-link scrollto" href="/register">Register <i class="fa-solid fa-right-from-bracket"></i>
+
         
-  
-  <a href="/" class="logo"><img src="{% static 'image/logo4.png' %}" alt="" class="img-fluid"> STUDYROOM</a>
-  
-  
-        <nav id="navbar" class="navbar">
+        </a></li>
+        {% else %}
+        <li class="dropdown"><a href="#"><span>SignIn <i class="fa-solid fa-user"></i></span> <i class="bi bi-chevron-down"></i></a>
+
           <ul>
-            <li><a class="nav-link scrollto active" href="  /home">Home</a></li>
+            <li><a href="/auth/signup/">Sign Up <i class="fa-solid fa-user"></i></a></li>
+            <li><a href="/auth/login/">Login</a></li>
           
-            <li><a class="nav-link scrollto" href="/about">About</a></li>
-            <li><a class="nav-link scrollto" href="/home">Checkout</a></li>
-            <li><a class="nav-link scrollto" href="/home">My Profile<i class="fa-regular fa-square-user"></i> </a></li>
+
+          </ul>
+        </li>
+        {% endif %}
+
+      
+
+
+
+       
+
+
+
+        
+        
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
   
-            <!--<button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
-            </button>-->
 
-
-
-             
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
