@@ -6,6 +6,8 @@ from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from .models import Room, Topic, Message, User
 from .forms import RoomForm, UserForm, MyUserCreationForm
+from django.contrib.auth import login
+
 
 # Create your views here.
 
@@ -53,7 +55,7 @@ def registerPage(request):
     if request.method == 'POST':
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=True)
+            user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
             login(request, user)
@@ -206,3 +208,6 @@ def activityPage(request):
 
 def cancel(request):
     return render(request, "base/cancel.html")
+
+def index(request):
+    return render(request, "base/index.html")
